@@ -6,10 +6,17 @@ using TMPro;
 
 public class Fishing : MonoBehaviour
 {
-    [SerializeField] private GameObject isFishingText, startFishButton, catchButton, attackButton;
+    [SerializeField] private GameObject isFishingText, startFishButton, catchButton, attackButton, IkanPaus;
 
     [SerializeField] private TextMeshProUGUI attackTimeRemaining;
-    private float timeCounter = 0;
+    private float timeCountdown;
+    private float timeCountdownCounter;
+    private bool isCountdown;
+    
+    private float HPFish;
+    private float HPFishCounter;
+    [SerializeField] private Image HPFishFill;
+
     void Start()
     {
         startFishButton.SetActive(true);
@@ -17,13 +24,47 @@ public class Fishing : MonoBehaviour
         catchButton.SetActive(false);
         attackButton.SetActive(false);
 
-        timeCounter = 10f;
+        isCountdown = false;
+        
+        timeCountdown = 5f;
+        timeCountdownCounter = timeCountdown;
+
+        HPFish = 10f;
+        HPFishCounter = HPFish;
     }
 
     void Update()
     {
-        timeCounter -= 1 * Time.deltaTime;
-        attackTimeRemaining.SetText(timeCounter.ToString("0"));
+        CountdownAttackFish();
+        WinLoseCondition();
+    }
+
+    private void CountdownAttackFish()
+    {
+        if (isCountdown == true)
+        {
+            timeCountdownCounter -= 1 * Time.deltaTime;
+            attackTimeRemaining.SetText(timeCountdownCounter.ToString("0"));
+        }
+        if(isCountdown == false)
+        {
+            timeCountdownCounter = timeCountdown;
+        }
+    }
+
+    private void WinLoseCondition()
+    {
+        if (timeCountdownCounter <= 0)
+        {
+            isCountdown = false;
+            Debug.Log("Lose");
+        }
+
+        if (HPFishCounter <= 0)
+        {
+            isCountdown = false;
+            Debug.Log("Win");
+        }
     }
 
     private IEnumerator isFishing(float FishingDuration)
@@ -33,6 +74,7 @@ public class Fishing : MonoBehaviour
         yield return new WaitForSecondsRealtime(FishingDuration);
         isFishingText.SetActive(false);
         catchButton.SetActive(true);
+        HPFishFill.fillAmount = 1;
     }
 
     public void StartFishingButton()
@@ -42,12 +84,15 @@ public class Fishing : MonoBehaviour
 
     public void CatchButton()
     {
-        
+        catchButton.SetActive(false);
+        attackButton.SetActive(true);
     }
 
     public void AttackButton()
     {
-
+        isCountdown = true;
+        HPFishCounter -= 1f;
+        HPFishFill.fillAmount = HPFishCounter / 10;
+        Debug.Log("HP"+ HPFishCounter);
     }
-
 }
