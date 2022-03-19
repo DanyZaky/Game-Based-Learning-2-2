@@ -140,4 +140,5 @@ public class Fishing : MonoBehaviour
         stopFishingButton.SetActive(false);
         startFishButton.SetActive(true);
     }
+    //tes
 }
