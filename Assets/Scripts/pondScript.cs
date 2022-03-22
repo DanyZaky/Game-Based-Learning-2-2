@@ -47,7 +47,7 @@ public class pondScript : MonoBehaviour
             else if (dayCycle < 0)
             {
                 isDay = false;
-                dayCycle = 24f;
+                dayCycle = 12f;
                 dayPhase+=1;
             }
 
@@ -58,7 +58,7 @@ public class pondScript : MonoBehaviour
             else if(nightCycle < 0)
             {
                 isDay = true;
-                nightCycle = 24f;
+                nightCycle = 12f;
                 dayPhase+=1;
             }
         }
