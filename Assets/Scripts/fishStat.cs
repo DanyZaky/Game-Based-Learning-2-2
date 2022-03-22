@@ -6,7 +6,7 @@ public class fishStat : MonoBehaviour
 {
     //water temperature based on a reaserch, please treat it carefully
     public string fishName = "bawal";
-    public int fishAgeInDays = 1;
+    public int fishAgeInDays = 0;
     public int stressLevel = 0;
     public int maxWaterTemperature = 37;
     public int minWaterTemperature = 9;
@@ -15,11 +15,13 @@ public class fishStat : MonoBehaviour
     public int starveLevel = 0;
     public bool breedAble = false;
     public bool isMale = true;
-    public float lifeSpan = 10;
+    public float lifeSpan = 150;
+    float timePerDay = 24f;
     // 1 hour = 1s, 1 day = 24s, 1month = 720s
     public bool isReadyToHarvest = false;
     public float weight = 50f;
     public bool isTimeRunning = false;
+    public int healthPoint = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +32,13 @@ public class fishStat : MonoBehaviour
     void Update()
     {
         AgeCounter();
+        // Debug.Log(fishAgeInDays);
         GrowthBehaviour();
     }
 
     void GrowthBehaviour()
     {
-        if (lifeSpan < 105)
+        if (fishAgeInDays == 2)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
@@ -45,11 +48,14 @@ public class fishStat : MonoBehaviour
     {
         if (isTimeRunning)
         {
-            if (lifeSpan > 0)
+            if (timePerDay > 0)
             {
-                lifeSpan -= Time.deltaTime;
-                Debug.Log(lifeSpan);
-                // Debug.Log(Time.timeScale);
+                timePerDay -= Time.deltaTime;
+            }
+            else
+            {
+                fishAgeInDays+=1;
+                timePerDay = 24f;
             }
         }
     }

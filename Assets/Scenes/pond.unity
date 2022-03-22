@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 608392795}
   - component: {fileID: 608392794}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,10 +164,11 @@ MonoBehaviour:
   starveLevel: 0
   breedAble: 0
   isMale: 1
-  lifeSpan: 78840000
+  lifeSpan: 120
   isReadyToHarvest: 0
   weight: 50
   isTimeRunning: 0
+  healthPoint: 100
 --- !u!50 &608392795
 Rigidbody2D:
   serializedVersion: 4
