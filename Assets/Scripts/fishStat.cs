@@ -16,6 +16,7 @@ public class fishStat : MonoBehaviour
     public bool breedAble = false;
     public bool isMale = true;
     public float lifeSpan = 150;
+    public float harvestDayCounter = 80f;
     float timePerDay = 24f;
     // 1 hour = 1s, 1 day = 24s, 1month = 720s
     public bool isReadyToHarvest = false;
@@ -23,27 +24,42 @@ public class fishStat : MonoBehaviour
     public bool isTimeRunning = false;
     public int healthPoint = 100;
 
+    public float fishMaxSize = 25f;
+    public float fishMinSize = 10f;
+
+    public float growthPerdayVar;
     // Start is called before the first frame update
     void Start()
     {
+        growthPerdayVar = growthPerday();
+        GameObject fishPond = GameObject.Find("fishPond");
+        pondScript ponsCs = fishPond.GetComponent<pondScript>();
+        // Debug.Log(ponsCs.GetOksigenLevel());
     }
 
     // Update is called once per frame
     void Update()
     {
         AgeCounter();
+        harvestChecker();
         // Debug.Log(fishAgeInDays);
-        GrowthBehaviour();
+        // GrowthBehaviour();
     }
 
     void GrowthBehaviour()
     {
-        if (fishAgeInDays == 2)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        Vector3 growth = new Vector3(growthPerdayVar, growthPerdayVar, growthPerdayVar);
+        transform.localScale += growth;
+        // if (fishAgeInDays == 2)
+        // {
+        //     transform.localScale = new Vector3(1f, 1f, 1f);
+        // }
     }
 
+    float growthPerday()
+    {
+        return (fishMaxSize*0.5f) / harvestDayCounter;
+    }
     void AgeCounter()
     {
         if (isTimeRunning)
@@ -55,11 +71,22 @@ public class fishStat : MonoBehaviour
             else
             {
                 fishAgeInDays+=1;
+                harvestDayCounter-=1;
+                GrowthBehaviour();
                 timePerDay = 24f;
             }
         }
     }
 
+    void harvestChecker()
+    {
+        if (harvestDayCounter <= 0)
+        {
+            isReadyToHarvest = true;
+        }else{
+            isReadyToHarvest = false;
+        }
+    }
     void IsFishHasDeployed()
     {}
 }
