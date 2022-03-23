@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a920c9103ba60842885b363fd85e971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayColor: {r: 0.4198113, g: 0.91403097, b: 1, a: 1}
+  nightColor: {r: 0.19873619, g: 0.5130662, b: 0.5471698, a: 1}
   dayPhase: daylight
 --- !u!1 &839482815
 GameObject:
@@ -255,7 +257,7 @@ MonoBehaviour:
   temperatureLevel: 32
   oksigenLevel: 10
   cleanessLevel: 0
-  isStart: 0
+  isStart: 1
   dayPhase: 0
 --- !u!4 &839482817
 Transform:
@@ -414,7 +416,7 @@ MonoBehaviour:
   harvestDayCounter: 80
   isReadyToHarvest: 0
   weight: 50
-  isTimeRunning: 0
+  isTimeRunning: 1
   healthPoint: 100
   fishMaxSize: 25
   fishMinSize: 10

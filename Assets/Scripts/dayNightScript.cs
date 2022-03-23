@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class dayNightScript : MonoBehaviour
 {
-    // // Start is called before the first frame update
-    //     GameObject fishPond = GameObject.Find("fishPond");
-    //     pondScript pondCs = fishPond.GetComponent<pondScript>();
-    //     GameObject daySprite = GameObject.Find("day");
-    //     GameObject nightSprite = GameObject.Find("night");
+
     GameObject fishPond;
-    // GameObject daySprite = GameObject.Find("day");
-    // GameObject nightSprite = GameObject.Find("night");
     SpriteRenderer Sprite;
     pondScript pondCs;
+    
+    [SerializeField] Color dayColor = Color.black;
+    [SerializeField] Color nightColor = Color.black;
 
     public string dayPhase;
     
@@ -33,17 +30,12 @@ public class dayNightScript : MonoBehaviour
         if (dayPhase == "daylight")
         {
             //63C3F1
-            Sprite.color = new Color(54, 97, 118, 255);
+            Sprite.color = dayColor;
 
         }else if (dayPhase == "night"){
-            Sprite.color = new Color(99, 195, 241, 255);
+            Sprite.color =nightColor;
             //366176
         }
     }
 
-    string GetPhase()
-    {
-        // return pondCs.getDayPhase();
-        return("asd");
-    }
 }
