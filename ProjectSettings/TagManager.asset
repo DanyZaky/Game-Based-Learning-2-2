@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: fish
+    uniqueID: 3064725283
+    locked: 0
+  - name: bg
+    uniqueID: 348800287
+    locked: 0

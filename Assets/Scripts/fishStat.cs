@@ -16,34 +16,52 @@ public class fishStat : MonoBehaviour
     public bool breedAble = false;
     public bool isMale = true;
     public float lifeSpan = 150;
-    float timePerDay = 24f;
+    public float harvestDayCounter = 80f;
+    public float timePerDay = 6f;
+    public float timePerDayFixed = 6f;
+
     // 1 hour = 1s, 1 day = 24s, 1month = 720s
     public bool isReadyToHarvest = false;
     public float weight = 50f;
     public bool isTimeRunning = false;
     public int healthPoint = 100;
 
+    public float fishMaxSize = 25f;
+    public float fishMinSize = 10f;
+
+    public float growthPerdayVar;
     // Start is called before the first frame update
     void Start()
     {
+        growthPerdayVar = growthPerday();
+        GameObject fishPond = GameObject.Find("fishPond");
+        pondScript pondCs = fishPond.GetComponent<pondScript>();
+        // Debug.Log(ponsCs.GetOksigenLevel());
     }
 
     // Update is called once per frame
     void Update()
     {
         AgeCounter();
+        harvestChecker();
         // Debug.Log(fishAgeInDays);
-        GrowthBehaviour();
+        // GrowthBehaviour();
     }
 
     void GrowthBehaviour()
     {
-        if (fishAgeInDays == 2)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        Vector3 growth = new Vector3(growthPerdayVar, growthPerdayVar, growthPerdayVar);
+        transform.localScale += growth;
+        // if (fishAgeInDays == 2)
+        // {
+        //     transform.localScale = new Vector3(1f, 1f, 1f);
+        // }
     }
 
+    float growthPerday()
+    {
+        return (fishMaxSize*0.5f) / harvestDayCounter;
+    }
     void AgeCounter()
     {
         if (isTimeRunning)
@@ -55,11 +73,27 @@ public class fishStat : MonoBehaviour
             else
             {
                 fishAgeInDays+=1;
-                timePerDay = 24f;
+                harvestDayCounter-=1;
+                GrowthBehaviour();
+                timePerDay = timePerDayFixed;
             }
         }
     }
 
+    void harvestChecker()
+    {
+        if (harvestDayCounter <= 0)
+        {
+            isReadyToHarvest = true;
+        }else{
+            isReadyToHarvest = false;
+        }
+    }
     void IsFishHasDeployed()
     {}
+
+    void stressCalculator()
+    {
+
+    }
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 public class pondScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float timePerCycle = 12f;
     public float dayCycle = 12f;
     public float nightCycle = 12f;
     public int dayCounter = 0;
     public float phLevel = 0;
     public float temperatureLevel = 0f;
-    public float oksigenLevel = 0f;
+    public float oksigenLevel = 5f;
     public float cleanessLevel = 0f;
     bool isDay = true;
     public bool isStart = false;
@@ -35,8 +36,8 @@ public class pondScript : MonoBehaviour
             if (dayPhase == 2)
             {
                 dayCounter +=1;
-                Debug.Log(dayCounter);
-                Debug.Log(getDayPhase());
+                // Debug.Log(dayCounter);
+                // Debug.Log(getDayPhase());
                 dayPhase = 0;
             }
 
@@ -47,7 +48,7 @@ public class pondScript : MonoBehaviour
             else if (dayCycle < 0)
             {
                 isDay = false;
-                dayCycle = 12f;
+                dayCycle = timePerCycle;
                 dayPhase+=1;
             }
 
@@ -58,7 +59,7 @@ public class pondScript : MonoBehaviour
             else if(nightCycle < 0)
             {
                 isDay = true;
-                nightCycle = 12f;
+                nightCycle = timePerCycle;
                 dayPhase+=1;
             }
         }
@@ -85,5 +86,25 @@ public class pondScript : MonoBehaviour
         {
             return "night";
         }
+    }
+
+    public float GetPhLevel()
+    {
+        return phLevel;
+    }
+
+    public float GetTemperatureLevel()
+    {
+        return temperatureLevel;
+    }
+
+    public float GetOksigenLevel()
+    {
+        return oksigenLevel;
+    }
+
+    public float GetCleanessLevel()
+    {
+        return cleanessLevel;
     }
 }
