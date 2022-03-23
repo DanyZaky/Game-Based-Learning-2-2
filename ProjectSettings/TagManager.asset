@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Medicine
   - Feed
+  - Spot1
+  - Cat
   layers:
   - Default
   - TransparentFX

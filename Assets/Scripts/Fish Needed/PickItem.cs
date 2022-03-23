@@ -9,27 +9,43 @@ public class PickItem : MonoBehaviour
     private Transform targetMedicine;
     private Transform targetFeed;
 
-    public bool isMovingMedicine;
-    public bool isMovingFeed;
+    private FishNeededManager fnm;
 
-    void Start()
+    private void Start()
     {
-        isMovingMedicine = false;
-        isMovingFeed = false;
+        fnm = GameObject.Find("Fish Needed Manager").GetComponent<FishNeededManager>();
     }
 
     void Update()
     {
-        if(isMovingMedicine == true)
+        if(fnm.isMovingMedicine == true)
         {
             targetMedicine = GameObject.FindGameObjectWithTag("Medicine").GetComponent<Transform>();
             transform.position = Vector2.MoveTowards(transform.position, targetMedicine.position, speed * Time.deltaTime);
+
+            if (targetMedicine.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            }
+            else if (targetMedicine.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            }
         }
 
-        if(isMovingFeed == true)
+        if(fnm.isMovingFeed == true)
         {
             targetFeed = GameObject.FindGameObjectWithTag("Feed").GetComponent<Transform>();
             transform.position = Vector2.MoveTowards(transform.position, targetFeed.position, speed * Time.deltaTime);
+
+            if (targetFeed.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            }
+            else if (targetFeed.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            }
         }
     }
 
@@ -37,14 +53,23 @@ public class PickItem : MonoBehaviour
     {
         if (col.gameObject.tag == "Medicine")
         {
-            isMovingMedicine = false;
+            fnm.isMovingMedicine = false;
+            fnm.isPatrolling = true;
             Destroy(targetMedicine.gameObject);
         }
 
         if(col.gameObject.tag == "Feed")
         {
-            isMovingFeed = false;
+            fnm.isMovingFeed = false;
+            fnm.isPatrolling = true;
             Destroy(targetFeed.gameObject);
+        }
+
+        if (col.gameObject.tag == "Cat")
+        {
+            Debug.Log("PPPPPPPPPP");
+            Destroy(gameObject);
+            
         }
     }
 }
