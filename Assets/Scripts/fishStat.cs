@@ -33,7 +33,7 @@ public class fishStat : MonoBehaviour
     {
         growthPerdayVar = growthPerday();
         GameObject fishPond = GameObject.Find("fishPond");
-        pondScript ponsCs = fishPond.GetComponent<pondScript>();
+        pondScript pondCs = fishPond.GetComponent<pondScript>();
         // Debug.Log(ponsCs.GetOksigenLevel());
     }
 
@@ -89,4 +89,9 @@ public class fishStat : MonoBehaviour
     }
     void IsFishHasDeployed()
     {}
+
+    void stressCalculator()
+    {
+
+    }
 }
