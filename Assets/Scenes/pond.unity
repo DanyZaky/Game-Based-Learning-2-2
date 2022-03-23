@@ -250,8 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5702c9061fd65b24699db14c1d89ce70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayCycle: 12
-  nightCycle: 12
+  timePerCycle: 3
+  dayCycle: 3
+  nightCycle: 3
   dayCounter: 0
   phLevel: 0
   temperatureLevel: 32

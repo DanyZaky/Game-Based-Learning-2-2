@@ -5,6 +5,7 @@ using UnityEngine;
 public class pondScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float timePerCycle = 12f;
     public float dayCycle = 12f;
     public float nightCycle = 12f;
     public int dayCounter = 0;
@@ -47,7 +48,7 @@ public class pondScript : MonoBehaviour
             else if (dayCycle < 0)
             {
                 isDay = false;
-                dayCycle = 12f;
+                dayCycle = timePerCycle;
                 dayPhase+=1;
             }
 
@@ -58,7 +59,7 @@ public class pondScript : MonoBehaviour
             else if(nightCycle < 0)
             {
                 isDay = true;
-                nightCycle = 12f;
+                nightCycle = timePerCycle;
                 dayPhase+=1;
             }
         }

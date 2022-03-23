@@ -17,7 +17,9 @@ public class fishStat : MonoBehaviour
     public bool isMale = true;
     public float lifeSpan = 150;
     public float harvestDayCounter = 80f;
-    float timePerDay = 24f;
+    public float timePerDay = 6f;
+    public float timePerDayFixed = 6f;
+
     // 1 hour = 1s, 1 day = 24s, 1month = 720s
     public bool isReadyToHarvest = false;
     public float weight = 50f;
@@ -73,7 +75,7 @@ public class fishStat : MonoBehaviour
                 fishAgeInDays+=1;
                 harvestDayCounter-=1;
                 GrowthBehaviour();
-                timePerDay = 24f;
+                timePerDay = timePerDayFixed;
             }
         }
     }
