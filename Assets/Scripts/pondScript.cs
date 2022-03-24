@@ -17,6 +17,7 @@ public class pondScript : MonoBehaviour
     public bool isStart = false;
     public int dayPhase = 0;
 
+    public int maxPondCapacity = 10;
     void Start()
     {
 

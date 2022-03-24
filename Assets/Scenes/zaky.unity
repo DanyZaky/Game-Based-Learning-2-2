@@ -333,6 +333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6252123853184248313, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: fishSprite
+      value: 
+      objectReference: {fileID: 438712017}
     - target: {fileID: 8117612500767159096, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
       propertyPath: m_Name
       value: Ikan Kerapu
@@ -381,6 +385,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
 --- !u!1 &438712014 stripped
@@ -421,6 +429,11 @@ MonoBehaviour:
   fishMaxSize: 25
   fishMinSize: 10
   growthPerdayVar: 0
+--- !u!212 &438712017 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+  m_PrefabInstance: {fileID: 430352346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,12 +2156,13 @@ MonoBehaviour:
   dayCycle: 12
   nightCycle: 12
   dayCounter: 0
-  phLevel: 0
-  temperatureLevel: 0
-  oksigenLevel: 5
-  cleanessLevel: 0
+  phLevel: 2
+  temperatureLevel: 5
+  oksigenLevel: 10
+  cleanessLevel: 5
   isStart: 1
   dayPhase: 0
+  maxPondCapacity: 10
 --- !u!114 &1823718524
 MonoBehaviour:
   m_ObjectHideFlags: 0
