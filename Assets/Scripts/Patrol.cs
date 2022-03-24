@@ -13,8 +13,11 @@ public class Patrol : MonoBehaviour
 
     private FishNeededManager fnm;
 
+    public SpriteRenderer fishSprite;
+
     void Start()
     {
+        // Debug.Log(fishSprite.flipX);
         fnm = GameObject.Find("Fish Needed Manager").GetComponent<FishNeededManager>();
 
         for (int i = 0; i < 23; i++)
@@ -47,11 +50,13 @@ public class Patrol : MonoBehaviour
             //direction
             if (moveSpots[randomSpot].position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                // transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                fishSprite.flipX = false;
             }
             else if (moveSpots[randomSpot].position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+                // transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+                fishSprite.flipX = true;
             }
         }
     }
