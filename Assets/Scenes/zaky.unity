@@ -389,6 +389,22 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
 --- !u!1 &438712014 stripped
@@ -420,8 +436,8 @@ MonoBehaviour:
   isMale: 1
   lifeSpan: 150
   harvestDayCounter: 80
-  timePerDay: 6
-  timePerDayFixed: 6
+  timePerDay: 24
+  timePerDayFixed: 24
   isReadyToHarvest: 0
   weight: 50
   isTimeRunning: 1
