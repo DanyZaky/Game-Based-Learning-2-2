@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class fishStat : MonoBehaviour
 {
@@ -30,12 +31,13 @@ public class fishStat : MonoBehaviour
     public float fishMinSize = 10f;
 
     public float growthPerdayVar;
+    pondScript pondCs;
     // Start is called before the first frame update
     void Start()
     {
         growthPerdayVar = growthPerday();
-        GameObject fishPond = GameObject.Find("fishPond");
-        pondScript pondCs = fishPond.GetComponent<pondScript>();
+        pondCs = GameObject.Find("fishPond").GetComponent<pondScript>();
+        // pondScript pondCs = fishPond.GetComponent<pondScript>();
         // Debug.Log(ponsCs.GetOksigenLevel());
     }
 
@@ -44,6 +46,7 @@ public class fishStat : MonoBehaviour
     {
         AgeCounter();
         harvestChecker();
+        stressCalculator();
         // Debug.Log(fishAgeInDays);
         // GrowthBehaviour();
     }
@@ -94,6 +97,12 @@ public class fishStat : MonoBehaviour
 
     void stressCalculator()
     {
+        float cleanLv = pondCs.GetCleanessLevel();
+        float phLv = pondCs.GetPhLevel();
+        float tempLv = pondCs.GetTemperatureLevel();
+        float o2Lv = pondCs.GetOksigenLevel();
 
+        float totalStress = (cleanLv + phLv + tempLv + o2Lv)/4;
+        stressLevel = (int)Math.Round(totalStress);
     }
 }

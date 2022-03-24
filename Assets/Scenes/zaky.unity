@@ -333,6 +333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6252123853184248313, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: fishSprite
+      value: 
+      objectReference: {fileID: 438712017}
     - target: {fileID: 8117612500767159096, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
       propertyPath: m_Name
       value: Ikan Kerapu
@@ -381,8 +385,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+--- !u!1 &438712014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8117612500767159096, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+  m_PrefabInstance: {fileID: 430352346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &438712015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438712014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082cc04d70296c14993fb8c7746b4893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: kerapu
+  fishAgeInDays: 0
+  stressLevel: 0
+  maxWaterTemperature: 37
+  minWaterTemperature: 9
+  alive: 1
+  sicknessLevel: 0
+  starveLevel: 0
+  breedAble: 0
+  isMale: 1
+  lifeSpan: 150
+  harvestDayCounter: 80
+  timePerDay: 24
+  timePerDayFixed: 24
+  isReadyToHarvest: 0
+  weight: 50
+  isTimeRunning: 1
+  healthPoint: 100
+  fishMaxSize: 25
+  fishMinSize: 10
+  growthPerdayVar: 0
+--- !u!212 &438712017 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8117612500767159103, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+  m_PrefabInstance: {fileID: 430352346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +628,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2607485467043825214, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
   m_PrefabInstance: {fileID: 430352346}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 438712014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8005f93f3e48f274ba1790b792e21421, type: 3}
@@ -2015,8 +2082,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1823718522}
   - component: {fileID: 1823718521}
+  - component: {fileID: 1823718523}
+  - component: {fileID: 1823718524}
   m_Layer: 0
-  m_Name: BG
+  m_Name: fishPond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2087,6 +2156,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1823718523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823718520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5702c9061fd65b24699db14c1d89ce70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timePerCycle: 12
+  dayCycle: 12
+  nightCycle: 12
+  dayCounter: 0
+  phLevel: 2
+  temperatureLevel: 5
+  oksigenLevel: 10
+  cleanessLevel: 5
+  isStart: 1
+  dayPhase: 0
+  maxPondCapacity: 10
+--- !u!114 &1823718524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823718520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a920c9103ba60842885b363fd85e971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayColor: {r: 0.023584902, g: 0.9317774, b: 1, a: 1}
+  nightColor: {r: 0.26664296, g: 0.488066, b: 0.5283019, a: 1}
+  dayPhase: 
 --- !u!1 &1889887640
 GameObject:
   m_ObjectHideFlags: 0
