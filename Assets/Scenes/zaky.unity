@@ -333,6 +333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2607485467043825214, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
+      propertyPath: fishSprite
+      value: 
+      objectReference: {fileID: 438712017}
     - target: {fileID: 6252123853184248313, guid: 0237f03452b7a874aa40a9b39de03b94, type: 3}
       propertyPath: fishSprite
       value: 
@@ -443,7 +447,7 @@ MonoBehaviour:
   isTimeRunning: 1
   healthPoint: 100
   fishMaxSize: 25
-  fishMinSize: 10
+  fishMinSize: 0.2
   growthPerdayVar: 0
 --- !u!212 &438712017 stripped
 SpriteRenderer:

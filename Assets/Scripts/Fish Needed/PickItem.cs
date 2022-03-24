@@ -10,10 +10,13 @@ public class PickItem : MonoBehaviour
     private Transform targetFeed;
 
     private FishNeededManager fnm;
+    public SpriteRenderer fishSprite;
+    private fishStat fish;
 
     private void Start()
     {
         fnm = GameObject.Find("Fish Needed Manager").GetComponent<FishNeededManager>();
+        fish = GameObject.Find("Ikan Kerapu").GetComponent<fishStat>();
     }
 
     void Update()
@@ -25,11 +28,11 @@ public class PickItem : MonoBehaviour
 
             if (targetMedicine.position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                fishSprite.flipX = false;
             }
             else if (targetMedicine.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+                fishSprite.flipX = true;
             }
         }
 
@@ -40,11 +43,11 @@ public class PickItem : MonoBehaviour
 
             if (targetFeed.position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                fishSprite.flipX = false;
             }
             else if (targetFeed.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+                fishSprite.flipX = true;
             }
         }
     }
@@ -62,6 +65,7 @@ public class PickItem : MonoBehaviour
         {
             fnm.isMovingFeed = false;
             fnm.isPatrolling = true;
+            fish.FeededFunc(1);
             Destroy(targetFeed.gameObject);
         }
 

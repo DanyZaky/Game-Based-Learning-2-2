@@ -14,6 +14,7 @@ public class fishStat : MonoBehaviour
     public bool alive = true;
     public int sicknessLevel = 0;
     public int starveLevel = 0;
+    public int maxStarveLevel = 10;
     public bool breedAble = false;
     public bool isMale = true;
     public float lifeSpan = 150;
@@ -37,6 +38,7 @@ public class fishStat : MonoBehaviour
     {
         growthPerdayVar = growthPerday();
         pondCs = GameObject.Find("fishPond").GetComponent<pondScript>();
+        transform.localScale = new Vector3(fishMinSize*0.5f, fishMinSize*0.5f, fishMinSize*0.5f);
         // pondScript pondCs = fishPond.GetComponent<pondScript>();
         // Debug.Log(ponsCs.GetOksigenLevel());
     }
@@ -47,6 +49,7 @@ public class fishStat : MonoBehaviour
         AgeCounter();
         harvestChecker();
         stressCalculator();
+        diedCondition();
         // Debug.Log(fishAgeInDays);
         // GrowthBehaviour();
     }
@@ -79,6 +82,7 @@ public class fishStat : MonoBehaviour
                 harvestDayCounter-=1;
                 GrowthBehaviour();
                 timePerDay = timePerDayFixed;
+                starvingFunc();
             }
         }
     }
@@ -105,4 +109,23 @@ public class fishStat : MonoBehaviour
         float totalStress = (cleanLv + phLv + tempLv + o2Lv)/4;
         stressLevel = (int)Math.Round(totalStress);
     }
+
+    void starvingFunc()
+    {
+            starveLevel+=1;
+    }
+
+    public void FeededFunc(int eat)
+    {
+        starveLevel -= eat;
+    }
+
+    void diedCondition()
+    {
+        if(starveLevel == maxStarveLevel)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
