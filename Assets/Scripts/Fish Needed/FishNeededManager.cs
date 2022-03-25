@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FishNeededManager : MonoBehaviour
 {
-    [SerializeField] private GameObject medicinePrefabs, feedPrefabs;
+    [SerializeField] private GameObject medicinePrefabs, feedPrefabs, ikanPrefabs;
     [SerializeField] public PickItem pi;
     
     private float randomPos;
@@ -90,5 +90,12 @@ public class FishNeededManager : MonoBehaviour
 
         isMovingFeed = true;
         isPatrolling = false;
+    }
+
+    public void spawnIkanButton()
+    {
+        randomPos = Random.Range(-4f, 4f);
+
+        Instantiate(ikanPrefabs, new Vector2(randomPos, randomPos), Quaternion.identity);
     }
 }

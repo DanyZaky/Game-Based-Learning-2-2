@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2607485467043825214}
   - component: {fileID: 6252123853184248313}
   - component: {fileID: 7207733099274137248}
+  - component: {fileID: 4022846901824192285}
   m_Layer: 0
   m_Name: Ikan Kerapu
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  fishSprite: {fileID: 8117612500767159103}
 --- !u!114 &6252123853184248313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +138,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  fishSprite: {fileID: 8117612500767159103}
 --- !u!61 &7207733099274137248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,3 +165,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4022846901824192285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117612500767159096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082cc04d70296c14993fb8c7746b4893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishName: kerapu
+  fishAgeInDays: 0
+  stressLevel: 0
+  maxWaterTemperature: 37
+  minWaterTemperature: 9
+  alive: 1
+  sicknessLevel: 0
+  starveLevel: 0
+  maxStarveLevel: 10
+  breedAble: 0
+  isMale: 1
+  lifeSpan: 150
+  harvestDayCounter: 80
+  timePerDay: 24
+  timePerDayFixed: 24
+  isReadyToHarvest: 0
+  weight: 50
+  isTimeRunning: 1
+  healthPoint: 100
+  fishMaxSize: 25
+  fishMinSize: 0.2
+  growthPerdayVar: 0
