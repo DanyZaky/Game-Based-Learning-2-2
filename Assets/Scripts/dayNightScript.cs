@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class dayNightScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class dayNightScript : MonoBehaviour
     
     [SerializeField] Color dayColor = Color.black;
     [SerializeField] Color nightColor = Color.black;
+
+    [SerializeField] private TextMeshProUGUI phLevelInfo;
 
     public string dayPhase;
     
@@ -29,12 +32,15 @@ public class dayNightScript : MonoBehaviour
         dayPhase = pondCs.getDayPhase();
         if (dayPhase == "daylight")
         {
-            //63C3F1
+            phLevelInfo.SetText("PH = 8");
             Sprite.color = dayColor;
 
-        }else if (dayPhase == "night"){
+        }
+        
+        else if (dayPhase == "night")
+        {
+            phLevelInfo.SetText("PH = 5");
             Sprite.color =nightColor;
-            //366176
         }
     }
 

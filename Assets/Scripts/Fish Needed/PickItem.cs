@@ -17,7 +17,7 @@ public class PickItem : MonoBehaviour
     private void Start()
     {
         fnm = GameObject.Find("Fish Needed Manager").GetComponent<FishNeededManager>();
-        fish = GameObject.Find("Ikan Kerapu").GetComponent<fishStat>();
+        fish = gameObject.GetComponent<fishStat>();
     }
 
     void Update()
