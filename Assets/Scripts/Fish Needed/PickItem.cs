@@ -10,6 +10,7 @@ public class PickItem : MonoBehaviour
     private Transform targetFeed;
 
     private FishNeededManager fnm;
+
     public SpriteRenderer fishSprite;
     private fishStat fish;
 
@@ -71,9 +72,7 @@ public class PickItem : MonoBehaviour
 
         if (col.gameObject.tag == "Cat")
         {
-            Debug.Log("PPPPPPPPPP");
             Destroy(gameObject);
-            
         }
     }
 }
